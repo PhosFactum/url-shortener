@@ -9,7 +9,7 @@ import (
 
 type Response struct {
 	Status string `json:"status"`
-	Error  string `json:"error, omitempty"`
+	Error  string `json:"error,omitempty"`
 }
 
 const (
@@ -42,10 +42,10 @@ func ValidationError(errs validator.ValidationErrors) Response {
 		default:
 			errMsgs = append(errMsgs, fmt.Sprintf("field %s is not valid", err.Field()))
 		}
+	}
 
-		return Response{
-			Status: StatusError,
-			Error:  strings.Join(errMsgs, ", "),
-		}
+	return Response{
+		Status: StatusError,
+		Error:  strings.Join(errMsgs, ", "),
 	}
 }
