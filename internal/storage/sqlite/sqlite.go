@@ -70,7 +70,7 @@ func (s *Storage) GetURL(alias string) (string, error) {
 
 	stmt, err := s.db.Prepare("SELECT url FROM url WHERE alias = ?")
 	if err != nil {
-		return "", fmt.Errof("%s: prepare statement: %w", op, err)
+		return "", fmt.Errorf("%s: prepare statement: %w", op, err)
 	}
 
 	var resURL string
