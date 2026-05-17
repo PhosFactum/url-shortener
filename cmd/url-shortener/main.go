@@ -55,7 +55,7 @@ func main() {
 		r.Post("/", save.New(log, storage))
 	})
 
-	router.Post("/{alias}", redirect.New(log, storage))
+	router.Get("/{alias}", redirect.New(log, storage))
 
 	log.Info("starting server", slog.String("address", cfg.Address))
 
